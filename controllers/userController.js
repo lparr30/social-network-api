@@ -11,7 +11,15 @@ async function getUsers(req, res) {
     res.json(dbResponse);
 }
 
+async function getOneUser(req, res) {
+    const dbResponse = await User.findOne({
+        _id: req.params.id
+    });
+    res.json(dbResponse);
+}
+
 module.exports = {
     createUser,
-    getUsers
+    getUsers,
+    getOneUser
 }
